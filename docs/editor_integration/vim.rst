@@ -23,7 +23,8 @@ Linting/Diagnostics with ALE
 
 A custom linter can be defined for 'ALE <https://github.com/dense-analysis/ale>'_ if you use this. You can place the following contents into a file somewhere in your runtime path under `ale_linters/vhdl/`, this will generate a Linter that can give you diagnostics in Vim
 
-.. code_block:: viml
+.. code-block:: viml
+
     function! ale_linters#vhdl#vsg_ale#GetCommand(buffer)
         return "vsg --config ./vsg_config.yaml -of syntastic -f " . expand('%p')
     endfunction
@@ -69,7 +70,8 @@ One option to interact with the LSP client with VSG is to use 'null-ls <https://
 
 This works by taking the current buffer's contents and passing it into the standard input for VSG, then using a regex, parses the syntastic style output from standard output to generate the diagnostics. For the formatting it puts the current buffer's contents into a temporary file, has VSG "fix" that file and then writes that temporary file back to the buffer (without saving).
 
-.. code_block:: lua
+.. code-block:: lua
+
     local null_ls = require('null-ls')
     local helpers = require('null-ls.helpers')
     local vsg_lint = {

@@ -1,4 +1,12 @@
+
 .. _configuring-simple-multiline-structure-rules:
+
+Configuring Simple Multiline Structure Rules
+--------------------------------------------
+
+There are rules which will check the structure of simple multiline expressions and conditions.
+
+There are several options to these rules:
 
 .. |new_line_after_assign| replace::
    :code:`new_line_after_assign`
@@ -32,13 +40,6 @@
 
 .. |default_no| replace::
    :code:`no`
-
-Configuring Simple Multiline Structure Rules
---------------------------------------------
-
-There are rules which will check the structure of simple multiline expressions and conditions.
-
-There are several options to these rules:
 
 +-------------------------+-------------+---------------+-----------------------------------+
 | Method                  | Values      | Default       | Description                       |
