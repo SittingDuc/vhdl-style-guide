@@ -34,3 +34,4 @@ Configuring
    configuring_uppercase_and_lowercase_rules.rst
    configuring_whitespace_rules.rst
    configuring_whitespace_after_comment_rules.rst
+
