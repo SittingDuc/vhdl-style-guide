@@ -24,7 +24,7 @@ There are several options to these rules:
    :code:`yes`, :code:`no`, :code:`ignore`
 
 .. |values2| replace::
-   :code:`yes`, :code:`no` 
+   :code:`yes`, :code:`no`
 
 .. |ignore_single_line| replace::
    :code:`ignore_single_line`
