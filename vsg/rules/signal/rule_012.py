@@ -133,6 +133,12 @@ def add_adjustments_to_dAnalysis(dAnalysis, compact_alignment):
     iMinLeftColumn = 9999999999999999
     iMaxTokenColumn = 0
     iMinTokenColumn = 9999999999999999
+    if compact_alignment is False:
+        alignment_addend = 0
+    elif compact_alignment is True:
+        alignment_addend = 1
+    else:
+        alignment_addend = compact_alignment
 
     for iKey in list(dAnalysis.keys()):
         iMaxLeftColumn = max(iMaxLeftColumn, dAnalysis[iKey]['comma_column'])
@@ -140,7 +146,7 @@ def add_adjustments_to_dAnalysis(dAnalysis, compact_alignment):
         iMaxTokenColumn = max(iMaxTokenColumn, dAnalysis[iKey]['identifier_column'])
         iMinTokenColumn = min(iMinTokenColumn, dAnalysis[iKey]['identifier_column'])
 
-    if compact_alignment:
+    if alignment_addend > 0:
         for iKey in list(dAnalysis.keys()):
             dAnalysis[iKey]['adjust'] = iMaxLeftColumn - dAnalysis[iKey]['identifier_column'] + 1
     else:

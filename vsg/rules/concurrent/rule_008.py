@@ -187,6 +187,13 @@ class rule_008(alignment.Rule):
 def add_adjustments_to_dAnalysis(dAnalysis, compact_alignment, include_lines_without_comments=False, iMaxColumn=0):
     iMaxLeftColumn = 0
     iMaxTokenColumn = 0
+    if compact_alignment is False:
+        alignment_addend = 0
+    elif compact_alignment is True:
+        alignment_addend = 1
+    else:
+        alignment_addend = compact_alignment
+
     for iKey in list(dAnalysis.keys()):
         iMaxLeftColumn = max(iMaxLeftColumn, dAnalysis[iKey]['left_column'])
         iMaxTokenColumn = max(iMaxTokenColumn, dAnalysis[iKey]['token_column'])
@@ -194,9 +201,9 @@ def add_adjustments_to_dAnalysis(dAnalysis, compact_alignment, include_lines_wit
     if include_lines_without_comments:
         iMaxTokenColumn = max(iMaxTokenColumn, iMaxColumn)
 
-    if compact_alignment:
+    if alignment_addend > 0:
         for iKey in list(dAnalysis.keys()):
-            dAnalysis[iKey]['adjust'] = iMaxLeftColumn - dAnalysis[iKey]['token_column'] + 1
+            dAnalysis[iKey]['adjust'] = iMaxLeftColumn - dAnalysis[iKey]['token_column'] + alignment_addend
     else:
         for iKey in list(dAnalysis.keys()):
             dAnalysis[iKey]['adjust'] = iMaxTokenColumn - dAnalysis[iKey]['token_column']
